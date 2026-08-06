@@ -42,6 +42,16 @@ python3 scripts/validate.py
 - **Category dirs mirror Hermes conventions:** `creative`, `software-development`, `github`, `media`, `research`, `productivity`, etc.
 - **MIT licensed.** All contributions must be MIT-compatible.
 
+## GitHub Actions
+
+All third-party action references in `.github/workflows/` must be pinned to their full 40-character commit SHA with a version tag in a trailing comment:
+
+```yaml
+uses: owner/repo@<40-char-sha> # v1.2.3
+```
+
+Never use tag-only references (e.g. `actions/checkout@v4`). When adding or updating an action, resolve the tag to a SHA using `gh api repos/OWNER/REPO/commits/TAG --jq '.sha'`. Local composite actions (`./.github/actions/*`) are exempt.
+
 ## When Working in This Repo
 
 - **Adding a skill:** Follow CONTRIBUTING.md. Always update both the skill files AND registry.yaml, then run the validator.
