@@ -1,0 +1,29 @@
+# Skills registry — source of truth for published skills.
+#
+# Each entry must:
+#   - Have a matching <path>/SKILL.md on disk
+#   - The SKILL.md frontmatter `name` must match the `name` field below
+#   - The SKILL.md frontmatter `version` must match the `version` field below
+#
+# CI (scripts/validate.py) enforces all three. Do not add entries without
+# the skill files, and do not commit skill files without a registry entry.
+
+version: 1              # registry schema version (not a skill version)
+updated: "2026-07-27"
+
+skills: []
+  # No skills published yet — this is the initial scaffold.
+  #
+  # To add a skill:
+  #   1. Create <category>/<skill-name>/SKILL.md (see CONTRIBUTING.md)
+  #   2. Add an entry here:
+  #
+  # - name: image-gen
+  #   version: 1.0.0
+  #   category: creative
+  #   author: BoldBlack
+  #   description: Generate images via OpenRouter's Image API
+  #   tags: [image, generation, openrouter]
+  #   dependencies:
+  #     - OPENROUTER_API_KEY
+  #   path: creative/image-gen
