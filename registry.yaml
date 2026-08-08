@@ -9,21 +9,15 @@
 # the skill files, and do not commit skill files without a registry entry.
 
 version: 1              # registry schema version (not a skill version)
-updated: "2026-07-27"
+updated: "2026-08-08"
 
-skills: []
-  # No skills published yet — this is the initial scaffold.
-  #
-  # To add a skill:
-  #   1. Create <category>/<skill-name>/SKILL.md (see CONTRIBUTING.md)
-  #   2. Add an entry here:
-  #
-  # - name: image-gen
-  #   version: 1.0.0
-  #   category: creative
-  #   author: BoldBlack
-  #   description: Generate images via OpenRouter's Image API
-  #   tags: [image, generation, openrouter]
-  #   dependencies:
-  #     - OPENROUTER_API_KEY
-  #   path: creative/image-gen
+skills:
+  - name: playwright-mcp
+    version: 1.0.0
+    category: software-development
+    author: BoldBlack
+    description: Install, configure, and use the Playwright MCP server for browser automation in Hermes.
+    tags: [playwright, browser, automation, mcp, screenshots, chromium]
+    dependencies:
+      - npx
+    path: software-development/playwright-mcp
