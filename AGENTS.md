@@ -4,7 +4,7 @@
 
 **boldblackai/skills** is a public registry of Hermes Agent skills. It's a curated marketplace — skills live here as self-contained directories with a declarative registry manifest (`registry.yaml`) as the source of truth.
 
-The repo is optimized for [harness](https://github.com/boldblackai/harness) / [bclaw](https://github.com/boldblackai/create-bclaw) setups, but usable by any Hermes user.
+The repo is optimized for [harness](https://github.com/boldblackai/harness) / [dispatch](https://github.com/boldblackai/create-dispatch) setups, but usable by any Hermes user.
 
 ## Repository Structure
 
