@@ -1,6 +1,6 @@
 # boldblackai/skills
 
-A curated registry of [Hermes Agent](https://hermes-agent.nousresearch.com) skills, optimized for [harness](https://github.com/boldblackai/harness) and [bclaw](https://github.com/boldblackai/create-bclaw) environments — but usable by any Hermes user.
+A curated registry of [Hermes Agent](https://hermes-agent.nousresearch.com) skills, optimized for [harness](https://github.com/boldblackai/harness) and [dispatch](https://github.com/boldblackai/create-dispatch) environments — but usable by any Hermes user.
 
 ## What's here
 
