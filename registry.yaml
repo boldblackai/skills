@@ -9,7 +9,7 @@
 # the skill files, and do not commit skill files without a registry entry.
 
 version: 1              # registry schema version (not a skill version)
-updated: "2026-08-08"
+updated: "2026-09-11"
 
 skills:
   - name: playwright-mcp
@@ -21,3 +21,13 @@ skills:
     dependencies:
       - npx
     path: software-development/playwright-mcp
+  - name: image-gen
+    version: 1.0.0
+    category: creative
+    author: BoldBlack
+    description: Generate and edit images via OpenRouter's unified Image API — any image model, chroma-key transparency, and battle-tested brand/logo iteration workflows.
+    tags: [image, generation, openrouter, dall-e, flux, gemini, logo, branding]
+    dependencies:
+      - OPENROUTER_IMAGE_API_KEY
+      - python3
+    path: creative/image-gen
