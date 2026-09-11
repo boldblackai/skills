@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Generate images via OpenRouter Image API.
 
-Reads OPENROUTER_IMAGE_API_KEY from the environment (regular env passthrough).
+Reads OPENROUTER_IMAGE_API_KEY from the environment (see SKILL.md frontmatter:
+required_environment_variables registers it for passthrough).
 
 Usage:
     python3 generate.py "a cyberpunk cat in neon rain" [--model MODEL] [--resolution RES] [--aspect-ratio AR] [--n N] [--output PATH] [--quality Q] [--output-format FMT]
@@ -11,26 +12,27 @@ Prints saved file path(s) to stdout. Errors to stderr with non-zero exit.
 
 import argparse
 import base64
+import json
 import os
 import sys
 import time
 import urllib.request
 import urllib.error
-import json
 
+ENV_API_KEY = "OPENROUTER_IMAGE_API_KEY"
 API_URL = "https://openrouter.ai/api/v1/images"
 DEFAULT_MODEL = "openai/gpt-5-image-mini"
 DEFAULT_CACHE_DIR = os.path.expanduser("~/.hermes/image_cache")
 
 
 def _load_api_key() -> str:
-    """Load OPENROUTER_IMAGE_API_KEY from the environment."""
-    key = os.environ.get("OPENROUTER_IMAGE_API_KEY", "")
+    """Load the API key from the environment (name kept in a module constant)."""
+    key = os.environ.get(ENV_API_KEY, "")
     if key:
         return key
     print(
-        "ERROR: OPENROUTER_IMAGE_API_KEY not found in environment. "
-        "Add it to ~/.hermes/.env.",
+        f"ERROR: {ENV_API_KEY} not found in environment. "
+        "Export it or load it from your secret manager.",
         file=sys.stderr,
     )
     sys.exit(1)

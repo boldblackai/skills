@@ -20,7 +20,7 @@ Generate images from text prompts using OpenRouter's unified Image API (`/api/v1
 
 ## Requirements
 
-- `OPENROUTER_IMAGE_API_KEY` must be set in `~/.hermes/.env` (passed to scripts via regular env passthrough)
+- `OPENROUTER_IMAGE_API_KEY` must be available in the environment (declared in this skill's frontmatter via `required_environment_variables`, which registers it for passthrough; how it gets there is up to you — env file, secret manager, etc.)
 
 ## How to Use
 
