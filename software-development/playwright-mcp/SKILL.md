@@ -98,6 +98,8 @@ mcp__playwright__browser_wait_for(time=2)  # seconds
 
 ## Pitfalls
 
+- **Viewport silently collapses between navigations — verify width before every full-page screenshot.** Observed: `browser_resize(1280x900)` sticks for the first shot, but after later `browser_navigate` calls the viewport reset to narrow widths (602/490/433/390px). Full-page screenshots then capture a crushed mobile-responsive layout (single-column grid, tall skinny PNG) that *looks* like a rendering bug but is a viewport bug. Fix: run `browser_evaluate(() => { window.resizeTo(1280, 900); return document.documentElement.clientWidth; })` immediately before **every** screenshot and assert the returned width; also verify saved PNG dimensions (`struct.unpack('>II', data[16:24])` on the IHDR) match expectations after a shoot batch.
+
 - **Binary location** — must be `~/.hermes/ms-playwright/`, not `~/.cache/ms-playwright/`. The cache dir is wiped on restart.
 - **`hermes config set` corrupts args lists** — use `hermes mcp remove` + `hermes mcp add` instead. `hermes config set` only writes scalars; dicts/lists become flat JSON strings.
 - **Default channel needs root** — always pass `--executable-path` pointing at the Chromium for Testing binary, or override the channel.
