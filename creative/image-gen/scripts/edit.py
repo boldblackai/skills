@@ -25,14 +25,15 @@ import urllib.error
 
 API_URL = "https://openrouter.ai/api/v1/chat/completions"
 DEFAULT_MODEL = "google/gemini-3-pro-image"
+ENV_API_KEY = "OPENROUTER_IMAGE_API_KEY"
 
 
 def _load_api_key() -> str:
-    """Load OPENROUTER_IMAGE_API_KEY from the environment."""
-    key = os.environ.get("OPENROUTER_IMAGE_API_KEY", "")
+    """Load the API key from the environment (name kept in a module constant)."""
+    key = os.environ.get(ENV_API_KEY, "")
     if key:
         return key
-    print("ERROR: OPENROUTER_IMAGE_API_KEY not found in environment. Add it to ~/.hermes/.env.", file=sys.stderr)
+    print(f"ERROR: {ENV_API_KEY} not found in environment. Export it or load it from your secret manager.", file=sys.stderr)
     sys.exit(1)
 
 
